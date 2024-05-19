@@ -1,47 +1,50 @@
--DELETE ALL IMAGES
-docker rmi $(docker images -q) 
+# Docker Commands
 
--STOP ALL CONTAINERS
+## Delete All Images
+docker rmi $(docker images -q)
+
+## Stop All Containers
 docker stop $(docker ps -a -q)
 
--RUN DOCKER COMPOSE (detached)
+## Run Docker Compose (detached)
 docker-compose up -d
 
--REBUILD DOCKER COMPOSE AFTER CHANGE FILES OF PROJECT (detached)
+## Rebuild Docker Compose After Changing Files of Project (detached)
 docker-compose up -d --build
 
--STOP AND REMOVE ALL COMPOSE CONTAINERS
+## Stop and Remove All Compose Containers
 docker-compose down
 
--LOGS OF PARTICULAR CONTAINER ID/NAME
+## Logs of Particular Container ID/Name
 docker logs 94027a507567
 
--ALL CONTAINERS SOPPED AND ACTIVE
+## All Containers (Stopped and Active)
 docker ps -a
 
--ALL ACTIVE CONTAINERS
+## All Active Containers
 docker ps
 
--DELETE ALL STOPPED CONTAINERS
+## Delete All Stopped Containers
 docker container prune
 
--INVOKE PROCESS IN RUNNING CONTAINER (sh/bash/powershell) (Special - name of container)
+## Invoke Process in Running Container (sh/bash/powershell) (Special - name of container)
 docker exec -it Special sh
 
--CREATE AND RUN CONTAINER FROM IMAGE my-file-writer
-docker run -it --name Special  my-file-writer
+## Create and Run Container from Image `my-file-writer`
+docker run -it --name Special my-file-writer
 
--CREATE IMAGE (. - path) 
+## Create Image (path: `.`)
 docker build . -t my-file-writer
 
--SHOW ALL IMAGES
+## Show All Images
 docker images
 
--RUN CONTAINER WITH SPECIFIC NAME
-docker run -it  --name calendar5  my-calendar:2.0.0
+## Run Container with Specific Name
+docker run -it --name calendar5 my-calendar:2.0.0
 
--RUN DOCKER CONTAINER WITH PORT AND VOLUME REMAPPINGS ( or ${PWD} )
-docker run -d -v C:\New\docker\nginx:/usr/share/nginx/html  -p 8181:80 --name M1 nginx
+## Run Docker Container with Port and Volume Remappings (or `${PWD}`)
+docker run -d -v C:\New\docker\nginx:/usr/share/nginx/html -p 8181:80 --name M1 nginx
 
--INSPECT CONTAINER
+## Inspect Container
 docker inspect M1
+
