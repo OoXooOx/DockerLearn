@@ -48,3 +48,5 @@ docker run -d -v C:\New\docker\nginx:/usr/share/nginx/html -p 8181:80 --name M1 
 ## Inspect Container
 docker inspect M1
 
+## Delete all unused Docker volumes
+docker volume prune
