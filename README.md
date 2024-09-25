@@ -50,3 +50,9 @@ docker inspect M1
 
 ## Delete all unused Docker volumes
 docker volume prune
+
+## Delete all unused/suspended Docker images
+docker image prune
+
+## Delete all Docker images
+docker image prune -a
