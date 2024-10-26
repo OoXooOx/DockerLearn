@@ -56,3 +56,6 @@ docker image prune
 
 ## Delete all Docker images
 docker image prune -a
+
+## Delete mongo local volume
+docker volume rm mongo_mongo_data
