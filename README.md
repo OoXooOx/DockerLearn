@@ -59,3 +59,8 @@ docker image prune -a
 
 ## Delete mongo local volume
 docker volume rm mongo_mongo_data
+
+## Inspect mongo
+docker exec -it mongo mongosh -u user_name_for_mongo -p password_for_mongo
+use your_collection_name
+db.your_collection_name.find()
