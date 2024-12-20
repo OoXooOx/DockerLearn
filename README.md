@@ -62,12 +62,18 @@ docker volume rm mongo_mongo_data
 
 ## Inspect mongo
 docker exec -it mongo mongosh -u user_name_for_mongo -p password_for_mongo
+
 use your_collection_name
+
 db.your_collection_name.find()
 
 ## Delete mongo collections
 docker exec -it mongo mongosh -u root -p strong_password --authenticationDatabase admin
+
 show dbs 
+
 use admin
+
 db.dropDatabase() // can't drop db with system elements
+
 db.getCollectionNames().forEach(c => !c.startsWith("system.") && db[c].drop())    // drop not system collections
