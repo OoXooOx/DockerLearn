@@ -83,8 +83,13 @@ docker exec -it mongo mongosh -u root -p strong_password --authenticationDatabas
 use admin
 
 **To enable maintenance mode:**
+
 db.reboots.updateOne({},{ $set: { isWannaReboot: true } })
+
 **To disable maintenance mode:**
+
 db.reboots.updateOne({},{ $set: { isWannaReboot: false } })
+
 **To verify current status:**
+
 db.reboots.find()
