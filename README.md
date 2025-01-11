@@ -81,9 +81,10 @@ db.getCollectionNames().forEach(c => !c.startsWith("system.") && db[c].drop())  
 ## Modify mongo collections
 docker exec -it mongo mongosh -u root -p strong_password --authenticationDatabase admin
 use admin
-# To enable maintenance mode:
+
+**To enable maintenance mode:**
 db.reboots.updateOne({},{ $set: { isWannaReboot: true } })
-# To disable maintenance mode:
+**To disable maintenance mode:**
 db.reboots.updateOne({},{ $set: { isWannaReboot: false } })
-# To verify current status:
+**To verify current status:**
 db.reboots.find()
