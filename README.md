@@ -77,3 +77,13 @@ use admin
 db.dropDatabase() // can't drop db with system elements
 
 db.getCollectionNames().forEach(c => !c.startsWith("system.") && db[c].drop())    // drop not system collections
+
+## Modify mongo collections
+docker exec -it mongo mongosh -u root -p strong_password --authenticationDatabase admin
+use admin
+# To enable maintenance mode:
+db.reboots.updateOne({},{ $set: { isWannaReboot: true } })
+# To disable maintenance mode:
+db.reboots.updateOne({},{ $set: { isWannaReboot: false } })
+# To verify current status:
+db.reboots.find()
