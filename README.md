@@ -78,6 +78,8 @@ db.dropDatabase() // can't drop db with system elements
 
 db.getCollectionNames().forEach(c => !c.startsWith("system.") && db[c].drop())    // drop not system collections
 
+db.getCollectionNames().forEach(c => {if (!c.startsWith("system.") && c !== "reboots") {db[c].drop()}}) // drop not system collections, exlude reboots
+
 ## Modify mongo collections
 docker exec -it mongo mongosh -u root -p strong_password --authenticationDatabase admin
 use admin
